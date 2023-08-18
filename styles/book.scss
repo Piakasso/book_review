@@ -1,0 +1,725 @@
+/* Reset default */
+@font-face {
+  font-family: "Durer";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Durer.ttf");
+}
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300&display=swap");
+
+// Variables
+$color10: #1f1b14;
+$color60: #ad9d85;
+$color85: #e0dad1;
+$color95: #f5f3f0;
+$color100: #ffffff;
+
+@mixin fontz($fz, $fw, $lh) {
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+}
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: $color10;
+}
+
+a:visited {
+  color: inherit;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: middle;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  // ::-webkit-scrollbar {
+  //   /* for Mac OS X support */
+  //   width: 0;
+  // }
+  line-height: 1;
+  background-color: $color95;
+  font-size: 16px;
+  color: #1f2939;
+  line-height: 24px;
+  font-weight: 300;
+  font-family: "Overpass", sans-serif;
+}
+
+._hide {
+  display: none;
+}
+
+._container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.simplebar-scrollbar::before {
+  background-color: red;
+}
+
+/* Booklist */
+
+.booklist-header {
+  padding-top: 120px;
+}
+.booklist-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.booklist-header__title {
+  @include fontz(24px, 400, 32px);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+.booklist-header__account {
+  text-align: center;
+  @include fontz(16px, 400, 20px);
+  min-width: 220px;
+  padding: 12px 22px;
+  background: #d9d9d9;
+  transition: 500ms;
+  &:hover {
+    cursor: pointer;
+    background-color: #c90808;
+  }
+}
+.booklist__button {
+  display: inline-block;
+  @include fontz(16px, 400, 20px);
+  padding: 12px 20px;
+  background: #d9d9d9;
+  margin-bottom: 35px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.booklist__list {
+  margin-top: 35px;
+}
+
+.booklist__items {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 50px;
+}
+
+.booklist__data {
+  @include fontz(20px, 700, 32px);
+}
+
+.booklist__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.item__img {
+  width: 192px;
+  height: 230px;
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+.booklist__item {
+  display: flex;
+}
+
+.item__descr {
+  max-width: 300px;
+  padding-right: 10px;
+  padding-left: 26px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.item__title {
+  @include fontz(32px, 200, 32px);
+  font-style: italic;
+  color: $color60;
+}
+.item__author {
+  @include fontz(20px, 700, 37px);
+  margin-top: 16px;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .booklist__items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 479px) {
+  .booklist-header {
+    padding-top: 60px;
+  }
+  .booklist-header__container {
+    flex-direction: column;
+  }
+  .booklist-header__account {
+    margin: 20px 0 20px 0;
+  }
+
+  .item__title {
+    @include fontz(22px, 200, 20px);
+  }
+
+  .item__author {
+    @include fontz(16px, 700, 20px);
+    margin-top: 14px;
+  }
+}
+
+/* Booklist */
+
+.bookreview {
+  padding-top: 120px;
+}
+
+.bookreview-header__container {
+  span {
+    display: block;
+  }
+}
+.bookreview-header__subtitle {
+  @include fontz(24px, 400, 32px);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+.bookreview-header__title {
+  font-family: "Durer";
+  font-size: 88px;
+  line-height: 60px;
+  padding: 40px 0 25px 0;
+}
+.bookreview-header__account {
+  @include fontz(32px, 200, 32px);
+  color: $color60;
+  font-style: italic;
+}
+
+/* Main-block*/
+
+.bookreview-header {
+  margin-bottom: 100px;
+}
+
+.main-block__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "starsrate note note book"
+    "quotes moment favourites ending";
+  gap: 40px;
+}
+
+.main-block__starsrate {
+  grid-area: starsrate;
+  background: $color100;
+}
+.starsrate__descr {
+  padding: 0 30px;
+}
+.starsrate__item {
+  margin: 24px 0 0 0;
+  &:last-child {
+    margin-bottom: 30px;
+  }
+}
+._smalltitle {
+  margin-bottom: 16px;
+  padding: 0 30px;
+  display: block;
+  @include fontz(16px, 300, 24px);
+}
+
+.rating {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  margin: 10px 0;
+  flex-direction: row-reverse;
+}
+.rating input {
+  position: relative;
+  width: 23px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+.rating input::before {
+  content: "\f005";
+  position: absolute;
+  font-family: fontAwesome;
+  font-size: 34px;
+  position: absolute;
+  left: 4px;
+  color: #f5f3f0;
+  transition: 0.5s;
+}
+.rating input:nth-child(2n + 1)::before {
+  right: 4px;
+  left: initial;
+}
+.rating_ input:hover ~ input::before,
+.rating_ input:hover::before,
+.rating_ input:checked ~ input::before,
+.rating_ input:checked::before {
+  color: $color10;
+}
+
+.rating__overall input:disabled ~ input::before,
+.rating__overall input:disabled::before {
+  color: $color10;
+}
+
+.starsrate__descr {
+  @include fontz(14px, 300, 24px);
+  font-style: italic;
+  color: $color60;
+
+  margin-bottom: 8px;
+}
+
+.starsrate__scale {
+  img {
+    width: 40px;
+  }
+}
+
+.starsrate__overall {
+  position: relative;
+  margin: 0 auto;
+}
+
+.overall__title {
+  display: block;
+  margin-bottom: 16px;
+}
+.overall__scale {
+  padding-bottom: 30px;
+}
+
+.overall__total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rating__overall {
+  overflow: hidden;
+}
+
+.overall__count {
+  display: block;
+  @include fontz(28px, 700, 32px);
+}
+
+/* Notes */
+
+.main-block__note {
+  grid-area: note;
+  background: $color100;
+  padding: 24px 30px;
+  overflow: hidden;
+}
+.note__title {
+  @include fontz(16px, 300, 24px);
+}
+.note__text {
+  position: relative;
+  height: 850px;
+}
+
+/* Notes */
+
+.main-block__book {
+  grid-area: book;
+  background: $color100;
+  padding: 0 32px;
+  overflow: hidden;
+}
+
+.book__cover {
+  margin: 20px auto;
+  position: relative;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.25);
+  width: 220px;
+  height: 330px;
+  cursor: pointer;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.cover__img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: 500ms;
+}
+
+.file-upload-label {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 8px;
+  background-color: $color95;
+  color: $color60;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.file-input {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.file-upload-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.book__date {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  span {
+    display: block;
+    overflow: hidden;
+  }
+  span:hover {
+    cursor: pointer;
+  }
+}
+
+._calendar-position {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+
+#start-calendar {
+  position: absolute;
+  top: 100%;
+  opacity: 0.95;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+}
+
+#finish-calendar {
+  position: absolute;
+  min-width: 240px;
+  top: 100%;
+  opacity: 0.95;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+._boldtext {
+  @include fontz(20px, 700, 32px);
+  padding-top: 16px;
+}
+
+._bigblock {
+  height: 350px;
+}
+
+._smallblock {
+  height: 120px;
+}
+
+.book__format {
+  margin: 50px 0;
+}
+.format__title {
+  display: block;
+}
+.format__select {
+  display: block;
+  @include fontz(20px, 700, 32px);
+  padding-top: 16px;
+}
+
+.genre__type {
+  padding-top: 16px;
+  @include fontz(20px, 700, 32px);
+}
+
+/* Secondrow */
+
+.main-block__quotes {
+  grid-area: quotes;
+  padding: 24px 30px;
+  background: $color100;
+  overflow: hidden;
+}
+.quotes__title {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.main-block__moment {
+  grid-area: moment;
+  padding: 24px 30px;
+  position: relative;
+  background: $color100;
+  overflow: hidden;
+}
+
+.momemt__text {
+  display: block;
+  min-height: 270px;
+}
+
+.moment__moment-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: $color95;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  overflow: hidden;
+}
+
+.moment-page__title {
+  color: $color60;
+}
+.moment-page__number {
+  @include fontz(24px, 300, 32px);
+  color: $color60;
+}
+.main-block__favourites {
+  overflow: hidden;
+  grid-area: favourites;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  div {
+    flex-grow: 1;
+  }
+}
+.favourites__lovechar {
+  padding: 24px 30px;
+  background: $color100;
+  position: relative;
+  img {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+.favourites__hatechar {
+  position: relative;
+  padding: 24px 30px;
+  background: $color100;
+  img {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+.main-block__ending {
+  overflow: hidden;
+  grid-area: ending;
+  padding: 24px 30px;
+  background: $color100;
+  min-height: 400px;
+}
+
+.ending__title {
+  margin-bottom: 16px;
+}
+
+.main-block__button {
+  padding: 13px 58px;
+  background: #d9d9d9;
+  margin: 19px 0 65px 0;
+  transition: 500ms;
+  &:hover {
+    cursor: pointer;
+  }
+}
+@media (max-width: 1439px) {
+  .book__date {
+    flex-direction: column;
+  }
+
+  ._boldtext {
+    padding: 0;
+  }
+
+  .book__finishdate {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .book__cover {
+    width: 160px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bookreview-header__subtitle {
+    font-size: 18px;
+  }
+  .bookreview-header__title {
+    font-family: "Durer";
+    font-size: 66px;
+    margin: 20px 0 15px 0;
+  }
+  .bookreview {
+    padding-top: 80px;
+  }
+
+  .bookreview-header {
+    margin-bottom: 60px;
+  }
+
+  .book__cover {
+    width: 220px;
+    height: 330px;
+  }
+
+  .main-block__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "starsrate book"
+      "note note"
+      "quotes moment"
+      "favourites ending";
+
+    gap: 30px;
+  }
+
+  .main-block__note {
+    min-height: 300px;
+  }
+
+  .note__text {
+    height: 400px;
+  }
+
+  ._bigblock {
+    height: 250px;
+  }
+
+  ._smallblock {
+    height: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bookreview {
+    padding-top: 40px;
+  }
+
+  .bookreview-header {
+    margin-bottom: 40px;
+  }
+  .main-block__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "book"
+      "starsrate "
+      "note"
+      "quotes"
+      " moment"
+      "favourites"
+      "ending";
+
+    gap: 30px;
+  }
+
+  .main-block__book {
+    height: 730px;
+  }
+
+  .book__format {
+    margin: 30px 0;
+  }
+
+  .book__date {
+    flex-direction: row;
+  }
+
+  .book__finishdate {
+    margin-top: 0;
+  }
+  ._boldtext {
+    @include fontz(16px, 700, 24px);
+    padding-top: 10px;
+  }
+
+  .main-block__favourites {
+    div {
+      min-height: 150px;
+    }
+  }
+}
