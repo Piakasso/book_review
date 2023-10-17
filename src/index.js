@@ -1,12 +1,11 @@
 "use strict";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  child,
-} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+import "@babel/polyfill";
+import "./index.html";
+import "./style.css";
+
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set, get, child } from "firebase/database";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -14,17 +13,20 @@ import {
   sendEmailVerification,
   GoogleAuthProvider,
   signInWithPopup,
-} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+} from "firebase/auth";
+import "dotenv/config";
+
+const apiKey = process.env.API_KEY;
 
 const firebaseConfig = {
-  apiKey: API_KEY,
+  apiKey: apiKey,
   authDomain: "auth-app-e88b8.firebaseapp.com",
+  databaseURL: "https://auth-app-e88b8-default-rtdb.firebaseio.com",
   projectId: "auth-app-e88b8",
   storageBucket: "auth-app-e88b8.appspot.com",
   messagingSenderId: "350225510939",
-  appId: APP_ID,
+  appId: "1:350225510939:web:6648f84f6704f7c8d73ebe",
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);

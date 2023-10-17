@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/light.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/dark.min.css"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.js"
+        defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@6.2.5/dist/simplebar.css" />
+    <script src="https://unpkg.com/simplebar@6.2.5/dist/simplebar.min.js"></script>
+    </script>
+
+    <title>Books review</title>
+</head>
+
+<body>
+    <div class="page">
+        <div class="bookslist">
+            <div class="booklist-header">
+                <div class="booklist-header__container _container">
+                    <span class="booklist-header__title">List of books</span>
+                    <span class="booklist-header__account">Account</span>
+                </div>
+            </div>
+            <div class="booklist__list">
+                <div class="booklist-contaner _container">
+                    <span class="booklist__button">Add new review</span>
+                    <div class="booklist__items">
+                        <div class="booklist__loader">
+                            <img src="./img/loader.gif" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="bookreview _hide ">
+            <div class="bookreview-header">
+                <div class="bookreview-header__container _container">
+                    <span class="bookreview-header__subtitle">book review</span>
+                    <span class="bookreview-header__title" contenteditable="true"></span>
+                    <span class="bookreview-header__account" contenteditable="true"></span>
+                </div>
+            </div>
+            <div class="bookreview__main-block">
+                <div class="main-block__container _container">
+
+                    <div class="main-block__starsrate">
+                        <div class="starsrate__items">
+                            <div class="starsrate__item">
+                                <div class="starsrate__title _smalltitle">Setting</div>
+                                <div class="starsrate__descr">World-building, lore, atmosphere, etc.</div>
+                                <div class="rating rating_">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="5">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="4.5">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="4">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="3.5">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="3">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="2.5">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="2">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="1.5">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="1">
+                                    <input type="radio" data-setting="setting" name="setting" data-value="0.5">
+                                </div>
+                            </div>
+
+                            <div class="starsrate__item">
+                                <div class="starsrate__title _smalltitle">Plot</div>
+                                <div class="starsrate__descr">Structure, arcs, pacing, climax, tension, resolution,
+                                    etc.</div>
+                                <div class="rating rating_">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="5">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="4.5">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="4">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="3.5">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="3">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="2.5">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="2">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="1.5">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="1">
+                                    <input type="radio" data-plot="plot" name="plot" data-value="0.5">
+                                </div>
+                            </div>
+
+
+
+                            <div class="starsrate__item">
+                                <div class="starsrate__title _smalltitle">Characters</div>
+                                <div class="starsrate__descr">Development, relatability, depth, dynamics, arcs, etc.
+                                </div>
+                                <div class="rating rating_">
+                                    <input type="radio" name="char" data-char='char' data-value="5">
+                                    <input type="radio" name="char" data-char='char' data-value="4.5">
+                                    <input type="radio" name="char" data-char='char' data-value="4">
+                                    <input type="radio" name="char" data-char='char' data-value="3.5">
+                                    <input type="radio" name="char" data-char='char' data-value="3">
+                                    <input type="radio" name="char" data-char='char' data-value="2.5">
+                                    <input type="radio" name="char" data-char='char' data-value="2">
+                                    <input type="radio" name="char" data-char='char' data-value="1.5">
+                                    <input type="radio" name="char" data-char='char' data-value="1">
+                                    <input type="radio" name="char" data-char='char' data-value="0.5">
+                                </div>
+                            </div>
+
+                            <div class="starsrate__item">
+                                <div class="starsrate__title _smalltitle">Style</div>
+                                <div class="starsrate__descr">Writing, voice, point of view, narrator, etc.
+                                </div>
+                                <div class="rating rating_">
+                                    <input type="radio" name="style" data-style="style" data-value="5">
+                                    <input type="radio" name="style" data-style="style" data-value="4.5">
+                                    <input type="radio" name="style" data-style="style" data-value="4">
+                                    <input type="radio" name="style" data-style="style" data-value="3.5">
+                                    <input type="radio" name="style" data-style="style" data-value="3">
+                                    <input type="radio" name="style" data-style="style" data-value="2.5">
+                                    <input type="radio" name="style" data-style="style" data-value="2">
+                                    <input type="radio" name="style" data-style="style" data-value="1.5">
+                                    <input type="radio" name="style" data-style="style" data-value="1">
+                                    <input type="radio" name="style" data-style="style" data-value="0.5">
+                                </div>
+                            </div>
+
+                            <div class="starsrate__item">
+                                <div class="starsrate__title _smalltitle">Engagement</div>
+                                <div class="starsrate__descr">Immersion, Enjoyment, themes, genre, tropes, etc.
+                                </div>
+                                <div class="rating rating_">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="5">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="4.5">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="4">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="3.5">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="3">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="2.5">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="2">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="1.5">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="1">
+                                    <input type="radio" name="engagement" data-engagement="engagement" data-value="0.5">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="starsrate__overall ">
+                            <span class="overall__title _smalltitle">Overall rating</span>
+                            <div class="overall__total">
+                                <div class="rating rating__overall">
+                                    <input type="radio" name="overall" data-value="5">
+                                    <input type="radio" name="overall" data-value="4.5">
+                                    <input type="radio" name="overall" data-value="4">
+                                    <input type="radio" name="overall" data-value="3.5">
+                                    <input type="radio" name="overall" data-value="3">
+                                    <input type="radio" name="overall" data-value="2.5">
+                                    <input type="radio" name="overall" data-value="2">
+                                    <input type="radio" name="overall" data-value="1.5">
+                                    <input type="radio" name="overall" data-value="1">
+                                    <input type="radio" name="overall" data-value="0.5">
+
+                                </div>
+                                <span class="overall__count">0.0</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="main-block__note">
+                        <div class="note__title">Thoughts and notes</div>
+                        <div class="note__text _boldtext" contenteditable="true">
+                            .....
+                        </div>
+                    </div>
+
+                    <div class="main-block__book">
+                        <div class="book__cover">
+                            <img class="loader _hide" src="./img/15.svg">
+                            <img class="cover__img" src="./img/BookCoverMockup01.jpg" alt="">
+                            <label for="fileInput" class="file-upload-label">
+
+                                <!-- <span class="file-upload-text">Book cover here</span> -->
+                                <input type="file" id="fileInput" class="file-input" />
+                            </label>
+
+                        </div>
+
+
+
+                        <div class="book__date">
+                            <div class="book__startdate">
+                                <span class="startdate__title">Start date</span>
+                                <span class="startdate__date _boldtext"></span>
+                                <div id="start-calendar" class="_hide"></div>
+                            </div>
+                            <div class="book__finishdate">
+                                <span class="finishdate__title">Finish date</span>
+                                <span class="finishdate__date _boldtext"></span>
+                                <div id="finish-calendar" class="_hide"></div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="book__format">
+                            <span class="format__title">Format</span>
+                            <div class="format__select _smallblock _boldtext" contenteditable="true">
+                            </div>
+                        </div>
+
+                        <div class="book__genre">
+                            <span class="genre__title">Genre</span>
+                            <div class="genre__type _boldtext _smallblock" contenteditable="true"></div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="main-block__quotes">
+                        <span class="quotes__title _smalltitle">Quotes to remember</span>
+                        <div class="quotes__text _boldtext _bigblock data-simplebar" contenteditable="true"></div>
+                    </div>
+
+                    <div class="main-block__moment">
+                        <span class="moment__title _smalltitle">Most surprising moment</span>
+                        <div class="moment__text _boldtext _bigblock" contenteditable="true"></div>
+
+                        <div class="moment__moment-page">
+                            <span class="moment-page__title">page</span>
+                            <span class="moment-page__number" contenteditable="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="main-block__favourites">
+                        <div class="favourites__lovechar">
+                            <span class="lovechar__title _smalltitle">Favourite character</span>
+                            <div class="lovechar__text _boldtext _smallblock" contenteditable="true">....</div>
+                            <img src="./img/heart.svg" alt="">
+                        </div>
+                        <div class="favourites__hatechar">
+                            <span class="hatechar__title _smalltitle">Least favourite character</span>
+                            <div class="hatechar__text _boldtext _smallblock" contenteditable="true">....</div>
+                            <img src="./img/broken.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="main-block__ending">
+                        <span class="ending__title _smalltitle">The ending</span>
+                        <div class="ending__text _bigblock _boldtext" contenteditable="true"></div>
+                    </div>
+
+
+
+
+                    <div class="bookreview__button _container">
+                        <button class="main-block__button">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

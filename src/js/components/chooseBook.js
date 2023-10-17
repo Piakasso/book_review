@@ -1,8 +1,4 @@
-import {
-  getDatabase,
-  ref,
-  onValue,
-} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 import { addDates } from "./getDate.js";
 import getRating from "./getRating.js";

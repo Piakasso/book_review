@@ -1,9 +1,5 @@
-import {
-  getDatabase,
-  ref,
-  set,
-} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-
+import { getDatabase, ref, set } from "firebase/database";
+import defaultPic from "../../img/BookCoverMockup01.jpg";
 import getBookList from "./getListOfBook.js";
 
 const submitButton = document.querySelector(".main-block__button"),
@@ -12,6 +8,7 @@ const submitButton = document.querySelector(".main-block__button"),
   overallRate = document.querySelectorAll(".rating__overall input"),
   overallCount = document.querySelector(".overall__count"),
   chooseStartDate = document.querySelector("#start-calendar"),
+  bookCover = document.querySelector(".cover__img"),
   chooseFinishDate = document.querySelector("#finish-calendar");
 function saveChange(uid, title) {
   submitButton.addEventListener("click", (e) => {
@@ -49,6 +46,7 @@ function saveChange(uid, title) {
     });
     overallCount.innerHTML = "0.0";
 
+    bookCover.setAttribute("src", `${defaultPic}`);
     sessionStorage.clear();
     localStorage.clear();
     booklist.classList.remove("_hide");

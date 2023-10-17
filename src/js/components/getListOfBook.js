@@ -1,9 +1,4 @@
-import {
-  getDatabase,
-  ref,
-  get,
-  child,
-} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { getDatabase, ref, get, child } from "firebase/database";
 
 import chooseExistBook from "./chooseBook.js";
 const books = document.querySelector(".booklist__items");

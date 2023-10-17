@@ -1,10 +1,23 @@
 /* Reset default */
-@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300&display=swap");
 @font-face {
   font-family: "Durer";
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/Durer.ttf");
+}
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300&display=swap");
+
+// Variables
+$color10: #1f1b14;
+$color60: #ad9d85;
+$color85: #e0dad1;
+$color95: #f5f3f0;
+$color100: #ffffff;
+
+@mixin fontz($fz, $fw, $lh) {
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
 }
 *,
 *::before,
@@ -14,26 +27,22 @@
   border: 0;
   box-sizing: border-box;
 }
-
 a {
   text-decoration: none;
-  color: #1f1b14;
+  color: $color10;
 }
 
 a:visited {
   color: inherit;
 }
-
 ul,
 ol,
 li {
   list-style: none;
 }
-
 img {
   vertical-align: middle;
 }
-
 h1,
 h2,
 h3,
@@ -43,11 +52,10 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
-
 html,
 body {
   line-height: 1;
-  background-color: #f5f3f0;
+  background-color: $color95;
   font-size: 16px;
   color: #1f2939;
   line-height: 24px;
@@ -70,52 +78,42 @@ body {
 }
 
 /* Booklist */
+
 .booklist-header {
   padding-top: 120px;
 }
-
 .booklist-header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .booklist-header__title {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
+  @include fontz(24px, 400, 32px);
   letter-spacing: 6px;
   text-transform: uppercase;
 }
-
 .booklist-header__account {
   text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
+  @include fontz(16px, 400, 20px);
   min-width: 220px;
   padding: 12px 22px;
   background: #d9d9d9;
   transition: 500ms;
+  &:hover {
+    cursor: pointer;
+    background-color: #c90808;
+  }
 }
-.booklist-header__account:hover {
-  cursor: pointer;
-  background-color: #c90808;
-}
-
 .booklist__button {
   display: inline-block;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
+  @include fontz(16px, 400, 20px);
   padding: 12px 20px;
   background: #d9d9d9;
   margin-bottom: 35px;
+  &:hover {
+    cursor: pointer;
+  }
 }
-.booklist__button:hover {
-  cursor: pointer;
-}
-
 .booklist__list {
   margin-top: 35px;
 }
@@ -128,9 +126,7 @@ body {
 }
 
 .booklist__data {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 32px;
+  @include fontz(20px, 700, 32px);
 }
 
 .booklist__loader {
@@ -139,19 +135,18 @@ body {
   left: 50%;
   transform: translate(-50%, 50%);
 }
-
 .item__img {
   width: 192px;
   height: 230px;
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.25);
-}
-.item__img:hover {
-  cursor: pointer;
-}
-.item__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .booklist__item {
@@ -162,23 +157,18 @@ body {
   max-width: 300px;
   padding-right: 10px;
   padding-left: 26px;
-}
-.item__descr:hover {
-  cursor: pointer;
-}
 
+  &:hover {
+    cursor: pointer;
+  }
+}
 .item__title {
-  font-size: 32px;
-  font-weight: 200;
-  line-height: 32px;
+  @include fontz(32px, 200, 32px);
   font-style: italic;
-  color: #ad9d85;
+  color: $color60;
 }
-
 .item__author {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 37px;
+  @include fontz(20px, 700, 37px);
   margin-top: 16px;
   max-width: 300px;
   overflow: hidden;
@@ -189,6 +179,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 @media (max-width: 479px) {
   .booklist-header {
     padding-top: 60px;
@@ -199,51 +190,47 @@ body {
   .booklist-header__account {
     margin: 20px 0 20px 0;
   }
+
   .item__title {
-    font-size: 22px;
-    font-weight: 200;
-    line-height: 20px;
+    @include fontz(22px, 200, 20px);
   }
+
   .item__author {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
+    @include fontz(16px, 700, 20px);
     margin-top: 14px;
   }
 }
+
 /* Booklist */
+
 .bookreview {
   padding-top: 120px;
 }
 
-.bookreview-header__container span {
-  display: block;
+.bookreview-header__container {
+  span {
+    display: block;
+  }
 }
-
 .bookreview-header__subtitle {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
+  @include fontz(24px, 400, 32px);
   text-transform: uppercase;
   letter-spacing: 6px;
 }
-
 .bookreview-header__title {
   font-family: "Durer";
   font-size: 88px;
   line-height: 60px;
   padding: 40px 0 25px 0;
 }
-
 .bookreview-header__account {
-  font-size: 32px;
-  font-weight: 200;
-  line-height: 32px;
-  color: #ad9d85;
+  @include fontz(32px, 200, 32px);
+  color: $color60;
   font-style: italic;
 }
 
 /* Main-block*/
+
 .bookreview-header {
   margin-bottom: 100px;
 }
@@ -251,43 +238,40 @@ body {
 .main-block__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "starsrate note note book" "quotes moment favourites ending";
+  grid-template-areas:
+    "starsrate note note book"
+    "quotes moment favourites ending";
   gap: 40px;
 }
 
 .main-block__starsrate {
   grid-area: starsrate;
-  background: #ffffff;
+  background: $color100;
 }
-
 .starsrate__descr {
   padding: 0 30px;
 }
-
 .starsrate__item {
   margin: 24px 0 0 0;
+  &:last-child {
+    margin-bottom: 30px;
+  }
 }
-.starsrate__item:last-child {
-  margin-bottom: 30px;
-}
-
 ._smalltitle {
   margin-bottom: 16px;
   padding: 0 30px;
   display: block;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
+  @include fontz(16px, 300, 24px);
 }
 
 .rating {
   position: relative;
   display: flex;
   justify-content: center;
+
   margin: 10px 0;
   flex-direction: row-reverse;
 }
-
 .rating input {
   position: relative;
   width: 23px;
@@ -300,7 +284,6 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
-
 .rating input::before {
   content: "\f005";
   position: absolute;
@@ -311,35 +294,34 @@ body {
   color: #f5f3f0;
   transition: 0.5s;
 }
-
-.rating input:nth-child(2n+1)::before {
+.rating input:nth-child(2n + 1)::before {
   right: 4px;
   left: initial;
 }
-
 .rating_ input:hover ~ input::before,
 .rating_ input:hover::before,
 .rating_ input:checked ~ input::before,
 .rating_ input:checked::before {
-  color: #1f1b14;
+  color: $color10;
 }
 
 .rating__overall input:disabled ~ input::before,
 .rating__overall input:disabled::before {
-  color: #1f1b14;
+  color: $color10;
 }
 
 .starsrate__descr {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 24px;
+  @include fontz(14px, 300, 24px);
   font-style: italic;
-  color: #ad9d85;
+  color: $color60;
+
   margin-bottom: 8px;
 }
 
-.starsrate__scale img {
-  width: 40px;
+.starsrate__scale {
+  img {
+    width: 40px;
+  }
 }
 
 .starsrate__overall {
@@ -351,7 +333,6 @@ body {
   display: block;
   margin-bottom: 16px;
 }
-
 .overall__scale {
   padding-bottom: 30px;
 }
@@ -369,34 +350,30 @@ body {
 
 .overall__count {
   display: block;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 32px;
+  @include fontz(28px, 700, 32px);
 }
 
 /* Notes */
+
 .main-block__note {
   grid-area: note;
-  background: #ffffff;
+  background: $color100;
   padding: 24px 30px;
   overflow: hidden;
 }
-
 .note__title {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
+  @include fontz(16px, 300, 24px);
 }
-
 .note__text {
   position: relative;
   height: 850px;
 }
 
 /* Notes */
+
 .main-block__book {
   grid-area: book;
-  background: #ffffff;
+  background: $color100;
   padding: 0 32px;
   overflow: hidden;
 }
@@ -432,10 +409,11 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 8px 8px;
-  background-color: #f5f3f0;
-  color: #ad9d85;
+  background-color: $color95;
+  color: $color60;
   transition: 500ms;
   cursor: pointer;
+  opacity: 0;
 }
 
 .file-input {
@@ -452,18 +430,17 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .book__date {
   position: relative;
   display: flex;
   justify-content: space-around;
-}
-.book__date span {
-  display: block;
-  overflow: hidden;
-}
-.book__date span:hover {
-  cursor: pointer;
+  span {
+    display: block;
+    overflow: hidden;
+  }
+  span:hover {
+    cursor: pointer;
+  }
 }
 
 ._calendar-position {
@@ -492,9 +469,7 @@ body {
 }
 
 ._boldtext {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 32px;
+  @include fontz(20px, 700, 32px);
   padding-top: 16px;
 }
 
@@ -509,34 +484,28 @@ body {
 .book__format {
   margin: 50px 0;
 }
-
 .format__title {
   display: block;
 }
-
 .format__select {
   display: block;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 32px;
+  @include fontz(20px, 700, 32px);
   padding-top: 16px;
 }
 
 .genre__type {
   padding-top: 16px;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 32px;
+  @include fontz(20px, 700, 32px);
 }
 
 /* Secondrow */
+
 .main-block__quotes {
   grid-area: quotes;
   padding: 24px 30px;
-  background: #ffffff;
+  background: $color100;
   overflow: hidden;
 }
-
 .quotes__title {
   display: block;
   margin-bottom: 16px;
@@ -546,7 +515,7 @@ body {
   grid-area: moment;
   padding: 24px 30px;
   position: relative;
-  background: #ffffff;
+  background: $color100;
   overflow: hidden;
 }
 
@@ -563,7 +532,7 @@ body {
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  background: #f5f3f0;
+  background: $color95;
   position: absolute;
   bottom: 24px;
   right: 24px;
@@ -571,54 +540,49 @@ body {
 }
 
 .moment-page__title {
-  color: #ad9d85;
+  color: $color60;
 }
-
 .moment-page__number {
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 32px;
-  color: #ad9d85;
+  @include fontz(24px, 300, 32px);
+  color: $color60;
 }
-
 .main-block__favourites {
   overflow: hidden;
   grid-area: favourites;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  div {
+    flex-grow: 1;
+  }
 }
-.main-block__favourites div {
-  flex-grow: 1;
-}
-
 .favourites__lovechar {
   padding: 24px 30px;
-  background: #ffffff;
+  background: $color100;
   position: relative;
-}
-.favourites__lovechar img {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
+  img {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
 }
 
 .favourites__hatechar {
   position: relative;
   padding: 24px 30px;
-  background: #ffffff;
-}
-.favourites__hatechar img {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
+  background: $color100;
+  img {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
 }
 
 .main-block__ending {
   overflow: hidden;
   grid-area: ending;
   padding: 24px 30px;
-  background: #ffffff;
+  background: $color100;
   min-height: 400px;
 }
 
@@ -631,28 +595,31 @@ body {
   background: #d9d9d9;
   margin: 19px 0 65px 0;
   transition: 500ms;
+  &:hover {
+    cursor: pointer;
+  }
 }
-.main-block__button:hover {
-  cursor: pointer;
-}
-
 @media (max-width: 1439px) {
   .book__date {
     flex-direction: column;
   }
+
   ._boldtext {
     padding: 0;
   }
+
   .book__finishdate {
     margin-top: 10px;
   }
 }
+
 @media (max-width: 1279px) {
   .book__cover {
     width: 160px;
     height: 250px;
   }
 }
+
 @media (max-width: 1023px) {
   .bookreview-header__subtitle {
     font-size: 18px;
@@ -665,64 +632,91 @@ body {
   .bookreview {
     padding-top: 80px;
   }
+
   .bookreview-header {
     margin-bottom: 60px;
   }
+
   .book__cover {
     width: 220px;
     height: 330px;
   }
+
   .main-block__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "starsrate book" "note note" "quotes moment" "favourites ending";
+    grid-template-areas:
+      "starsrate book"
+      "note note"
+      "quotes moment"
+      "favourites ending";
+
     gap: 30px;
   }
+
   .main-block__note {
     min-height: 300px;
   }
+
   .note__text {
     height: 400px;
   }
+
   ._bigblock {
     height: 250px;
   }
+
   ._smallblock {
     height: 100px;
   }
 }
+
 @media (max-width: 767px) {
   .bookreview {
     padding-top: 40px;
   }
+
   .bookreview-header {
     margin-bottom: 40px;
   }
   .main-block__container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas: "book" "starsrate " "note" "quotes" " moment" "favourites" "ending";
+    grid-template-areas:
+      "book"
+      "starsrate "
+      "note"
+      "quotes"
+      " moment"
+      "favourites"
+      "ending";
+
     gap: 30px;
   }
+
   .main-block__book {
     height: 730px;
   }
+
   .book__format {
     margin: 30px 0;
   }
+
   .book__date {
     flex-direction: row;
   }
+
   .book__finishdate {
     margin-top: 0;
   }
   ._boldtext {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
+    @include fontz(16px, 700, 24px);
     padding-top: 10px;
   }
-  .main-block__favourites div {
-    min-height: 150px;
+
+  .main-block__favourites {
+    div {
+      min-height: 150px;
+    }
   }
-}/*# sourceMappingURL=book.css.map */
+}
